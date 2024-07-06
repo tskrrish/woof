@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import Header from './Header';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import WoofPage from './WoofPage.js';
+import chats from './Chats.js';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+            <Router>
+            <Header />
+
+        <Routes>
+          <Route path="/chat" element={<h1>I am the chat page</h1>} />
+          <Route path='/account' element={<h1>Account Page</h1>} />
+          <Route path='/' element={<WoofPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
+  
 
 export default App;
